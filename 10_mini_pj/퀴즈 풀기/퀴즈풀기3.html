@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>퀴즈 풀기</h1>
+    
+
+    <form method="post" >
+        <dl>
+            <dt>1. 뉴진스에 대하여 맞는 것은?</dt>
+            <dd> 
+                <input type="radio" name="뉴진스" id="뉴진스t" value="true">
+                <label for="뉴진스t">뉴진스 멤버는 5명이다.</label>
+                <input type="radio" name="뉴진스" id="뉴진스f" value="false">
+                <label for="뉴진스f">뉴진스 멤버는 10명이다.</label> 
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>2. 르세라핌의 곡 아닌 것은?</dt>
+            <dd> 
+                <input type="radio" name="르세라핌" id="르세라핌t" value="true">
+                <label for="르세라핌t">DTA</label>
+                <input type="radio" name="르세라핌" id="르세라핌f" value="false">
+                <label for="르세라핌f">이브,프시케, 그리고 푸른수염의 아내</label> 
+            </dd>
+        </dl>
+        <button type="submit">제출하기</button>
+    </form>
+<!--요 위까지 직접 작성, 아래 gpt도움-->
+
+    <h3 id="quizResult" style="display: none;">퀴즈 결과</h3>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // 기본 제출 동작 막기
+
+                // 각 질문에 대한 정답 가져오기
+                const answer1 = document.querySelector('input[name="뉴진스"]:checked').value; // 1번 문제 정답 설정
+                const answer2 = document.querySelector('input[name="르세라핌"]:checked').value; // 2번 문제 정답 설정
+
+                // 정답 비교하여 결과 계산
+                let score = 0;
+                if (answer1 === "true") {
+                    score++;
+                }
+                if (answer2 === "true") {
+                    score++;
+                }
+            
+                console.log(name="뉴진스");
+                console.log(name="르세라핌");
+
+                // 결과 출력
+                const resultDiv = document.getElementById('quizResult');
+                resultDiv.innerHTML = "<p>퀴즈 결과: ";
+                if (score === 2) {
+                    resultDiv.innerHTML += "모두 정답입니다!<br>";
+                } else {
+                    resultDiv.innerHTML += "일부 또는 모두 오답입니다.<br>";
+                }
+                resultDiv.innerHTML += "<br>"; // 행 추가
+                resultDiv.innerHTML += `총점: ${score} / 2</p>`;
+                resultDiv.style.display = "block"; // 결과 표시
+
+                
+            });
+        });
+    </script>
+</body>
+</html>
