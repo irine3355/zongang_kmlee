@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <style>
+            #munu4{
+                background: red;
+            }
+            .menus{
+                background: blue /*!important;*/
+            }
+            li{
+                background: orange;
+            }
+            
+            
+            
+        </style>
+        <!--  스타일 적용 우선순위 적용범위가 넓을 수록 우선순위가 낮아짐 . 그래서 !important; >속성> id > 클래스 > 태그 -->  
+<ul>
+    <li>메뉴1</li>
+    <li>메뉴2</li>
+    <li class="menus">메뉴3</li>
+    <li class="menus" id="munu4" style="background: pink;">메뉴4</li> /* 클래스 복수 적용가능*/
+    
+    <li class="menus munus5">메뉴5 </li>  
+    
+</ul>
+
+<!--  속성 style="background: pink;--> 
+  
+
+
+    </body>
+</html>
