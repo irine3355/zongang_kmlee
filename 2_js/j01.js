@@ -16,5 +16,13 @@ class Ellipse {
     }
 }
 
+
 //
 
+function person {
+    
+}
+
+person.prototype.showinfo = function (){
+    console.log (this. name, this. age);
+};
