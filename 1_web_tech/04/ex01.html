@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css"> 
-    </head>
-    <body>
-        <h1 style="color: orange;">회원가입</h1>
-        <form  method="post" action="ex02.html" >
-            <input type="hidden" name="mode" value="join">
-            <fieldset> 
-                <legend>일반 정보</legend>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <h1 style="color: orange;">회원가입</h1>
+    <form method="post" action="ex02.html">
+        <input type="hidden" name="mode" value="join">
+        <fieldset>
+            <legend>일반 정보</legend>
             <dl>
                 <dt>아이디</dt>
                 <dd>
@@ -19,13 +21,13 @@
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
-                    <input type="password" name="userPw" aria-placeholder="비밀번호" required minlength="6"  maxlength="20">
+                    <input type="password" name="userPw" aria-placeholder="비밀번호" required minlength="6" maxlength="20">
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호 확인</dt>
                 <dd>
-                    <input type="password" name="confirmPw" required minlength="6"  maxlength="20">
+                    <input type="password" name="confirmPw" required minlength="6" maxlength="20">
                 </dd>
             </dl>
             <dl>
@@ -34,124 +36,125 @@
                     <input type="text" name="userNm">
                 </dd>
             </dl>
-            
+
             <dl>
                 <dt>취미</dt>
                 <dd>
                     <label>
-                    <input type="checkbox" name="hobby" value="취미1" checked >취미1
+                        <input type="checkbox" name="hobby" value="취미1" checked>취미1
                     </label>
                     <label>
-                    <input type="checkbox" name="hobby" value="취미2">취미2
+                        <input type="checkbox" name="hobby" value="취미2">취미2
                     </label>
-                    <label> 
-                    <input type="checkbox" name="hobby" value="취미3">취미3
+                    <label>
+                        <input type="checkbox" name="hobby" value="취미3">취미3
                     </label>
-            
+
                 </dd>
             </dl>
 
             <dl>
                 <dt>이메일</dt>
                 <dd>
-                   
+
                     <input type="email" name="email">
-                    
+
                 </dd>
             </dl>
             <dl>
                 <dt>생년월일</dt>
                 <dd>
-                   
+
                     <input type="number" name="date" step="10">
-                    
+
                 </dd>
             </dl>
             <dl>
                 <dt>프로필 이미지</dt>
                 <dd>
-                   
+
                     <input type="file" name="profile" multiple>
-                    
+
                 </dd>
             </dl>
-        </fieldset> 
+        </fieldset>
 
-        <fieldset> 
+        <fieldset>
             <legend>학교 정보</legend>
 
             <dl>
                 <dt>전공</dt>
                 <dd>
-                   
+
                     <select name="major" size="2" multiple>
-                    <optgroup label="공과대학"> 
-                        <option value="컴퓨터공학과">컴퓨터공학과 </option>
-                        <option value="기계공학과">기계공학과 </option>
-                    </optgroup>
-                    <optgroup label="인문대학"> 
-                        <option value="영어영문학과" selected>영어영문학과 </option>
-                        <option value="철학과">철학과 </option>
-                    </optgroup>
+                        <optgroup label="공과대학">
+                            <option value="컴퓨터공학과">컴퓨터공학과 </option>
+                            <option value="기계공학과">기계공학과 </option>
+                        </optgroup>
+                        <optgroup label="인문대학">
+                            <option value="영어영문학과" selected>영어영문학과 </option>
+                            <option value="철학과">철학과 </option>
+                        </optgroup>
 
                     </select>
-                    
+
                 </dd>
             </dl>
 
-        <dl>
+            <dl>
 
-            <dt>학년</dt>
-            <dd>
-               
-                <input multipletype="radio" name="학년" id="1학년" value="1" checked >
-                <label for="1학년">1학년</label>
-            
-                <input type="radio" name="학년" id="2학년" value="2" >
-                <label for="2학년">2학년</label>
-                
-                <input type="radio" name="학년" id="3학년" value="3" >
-                <label for="3학년">3학년</label>
-            </dd>
-        </dl>
-        <dl>
-            <dt>지역</dt>
-            <dd>
-              <input type="text" list="locations">  
-              <datalist id="locations">
-                <option value="서울특별시"></option>
-                <option value="인천광역시" ></option>
-                <option value="경기도" label="경기"></option>
-              </datalist>
-            </dd>
-        </dl>
+                <dt>학년</dt>
+                <dd>
 
+                    <input multipletype="radio" name="학년" id="1학년" value="1" checked>
+                    <label for="1학년">1학년</label>
 
-    
+                    <input type="radio" name="학년" id="2학년" value="2">
+                    <label for="2학년">2학년</label>
 
-        <dl>
-            <dt>자기소개</dt>
-            <dd>
-               
-                <textarea name="introduction" cols="30" rows="10"></textarea>
-                
-            </dd>
-        </dl>
+                    <input type="radio" name="학년" id="3학년" value="3">
+                    <label for="3학년">3학년</label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>지역</dt>
+                <dd>
+                    <input type="text" list="locations">
+                    <datalist id="locations">
+                        <option value="서울특별시"></option>
+                        <option value="인천광역시"></option>
+                        <option value="경기도" label="경기"></option>
+                    </datalist>
+                </dd>
+            </dl>
 
 
-    </fieldset> 
-            <!--설명해줘
+
+
+            <dl>
+                <dt>자기소개</dt>
+                <dd>
+
+                    <textarea name="introduction" cols="30" rows="10"></textarea>
+
+                </dd>
+            </dl>
+
+
+        </fieldset>
+        <!--설명해줘
             <input type="reset" value="다시입력">
             <br><br>
             <input type="submit" value="가입하기">
             -->
 
-            <button type="reset">다시입력</button>
-            <button type="submit">가입하기</button>
-        </form>
-    
-  <progress max="100" value="70"></progress>
-<meter max="100" value="70"></meter>
+        <button type="reset">다시입력</button>
+        <button type="submit">가입하기</button>
+    </form>
 
-    </body>
+    <progress max="100" value="70"></progress>
+    <meter max="100" value="70"></meter>
+
+</body>
+
 </html>
