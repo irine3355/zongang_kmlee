@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
+import { produce } from 'immer';
 
 const intialValue = [
   { id: 1, title: '할일1', done: true },
@@ -32,6 +33,11 @@ const TodoContainer = () => {
 
     setItems(newItems);
 
+    setItems(produce((draft) => {
+      id: id.current,
+      title: todo.trim(),
+      done
+    }))
     id.current++;
 
     setTodo('');

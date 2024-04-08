@@ -1,0 +1,17 @@
+
+.wrapper {
+    padding: 20px;
+    background: black;
+    color:white;
+    font-size: 2rem;
+
+    
+    .highlight {
+        color: orange;
+        font-weight: bold;
+    }
+}
+
+:global .commoncolor {
+    color: blue;
+}

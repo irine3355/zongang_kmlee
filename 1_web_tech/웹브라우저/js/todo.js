@@ -1,4 +1,24 @@
+frmRegist.subject.value = "";
+frmRegist.subject.focus();
+
+const { data } = this;
+let id = this.id++;
+data.push({
+  id,
+  title: subject,
+});
+
 const todo = {
+  id: 1,
+  data: [],
+  init() {
+    const jsonData = localStorage.getItem("todos");
+    const todos = jsonData ? JSON.parse(jsonData) : [];
+    for (const item of todos) {
+      // symbol.iterator / 반복자 패턴 / 반복이 필요한 객체
+    }
+    console.log(todos);
+  },
   /**
    * 스케줄 추가
    *
@@ -29,10 +49,20 @@ const todo = {
 
     frmRegist.subject.value = "";
     frmRegist.subject.focus();
+
+    this.data.push({
+      id: this.id++,
+      title, // title : title
+    });
+    this.save();
+  },
+  save() {
+    localStorage.setItem("todos", JSON.stringify(this.data));
   },
 };
 
 window.addEventListener("DOMContentLoaded", function () {
+  todo.init(); // 데이터 조회 및 완성
   frmRegist.addEventListener("submit", function (e) {
     e.preventDefault();
     todo.add(); // 스케줄 추가

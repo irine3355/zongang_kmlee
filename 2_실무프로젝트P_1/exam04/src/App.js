@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import LifeCycle from './components/LifeCycle';
+import Average from './components/Average';
 
 const App = () => {
   const [visible, setVisible] = useState(true);
