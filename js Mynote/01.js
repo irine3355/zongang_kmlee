@@ -248,3 +248,35 @@ obj.b.d[1] = 3;
 
 console.log(obj);
 console.log(obj2);
+
+// call 메서드 p80
+
+var func = function (a,b,c) {
+    console.log(this, a, b, c);
+};
+
+func(1, 2, 3);
+func.call({x:1}, 4, 5, 6);
+
+//call 메서드 p81
+
+var obj = {
+a:1,
+method: function (x, y) {
+    console.log(this.a, x,y);
+}  
+
+}
+
+obj.method(1, 2, 3);
+obj.method.call({x:1}, 4, 5, 6); 
+
+//프로토타입 맵 p99
+
+var newArr2 = [10, 20, 30].map(function ( currentVaalue, index) {
+    console.log(currentVaalue, index);
+    return currentVaalue + 5;
+});
+
+console.log(newArr2);
+
