@@ -1,20 +1,24 @@
-import styles from './CSSModule.module.scss'
+import styles from './CSSModule.module.scss';
 import { useState } from 'react';
-import classnames from 'classnames';
-const CSSMoudule = () => {
-    const [visible, setVisible] = useState(false);
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
+
+const CSSModule = () => {
+  const [visible, setVisible] = useState(false);
 
   return (
-    <> 
-  <div className={styles.wrapper}>안녕하세요, <span className={styles.highlight}>반갑습니다.
-  </div>;
-
-  <div className={{on: visibles } }메뉴</div>
-
-  <button type='button' onClick={() => setVisible(!visible)}>클릭</button>
-  </>
-  )
+    <>
+      <div className={styles.wrapper}>
+        <span className="commonColor">안녕하세요</span>,
+        <span className={styles.highlight}>반갑습니다.</span>
+      </div>
+      <div className={cx('menus', ['cls1', 'cls2'], { on: visible })}>메뉴</div>
+      <button type="button" onClick={() => setVisible(!visible)}>
+        클릭
+      </button>
+    </>
+  );
 };
 
-
-export default CSSMoudule;
+export default CSSModule;
