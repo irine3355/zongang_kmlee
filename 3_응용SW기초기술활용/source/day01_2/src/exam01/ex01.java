@@ -7,7 +7,7 @@ public class ex01 {
         int num2 =10; // 선언 동시에 초기화
         num1=15;
         System.out.println( num1);
-        System.out.println( num2);
+        System.out.println( num2);  /// 1111
 
     }
 }
