@@ -1,36 +1,60 @@
 package exam01;
-//다음과 같은 자바 클래스가 주어졌을 때, 해당 클래스의 생성자를 작성하고, 두 개의 객체를 생성하여 값을 출력하세요.
+
 public class Book {
-        private String title;
-        private String author;
-        private int pageCount;
+    private String title;
+    private String author;
+    private int pageCount;
 
-        // 생성자 작성
-            public Book(String title, String author, int pageCount){
-            this.title = title;
-            this.author = author;
-            this.pageCount = pageCount;
-        }
+    // 생성자 작성
+    public Book(String title, String author, int pageCount) {
+        this.title = title;  // this는  멤버 변수 title 이하 동일
+        this.author = author;
+        this.pageCount = pageCount;
+    }
 
-        // Getter 및 Setter 메서드 생략
 
-        public static void main (String[]args){
-            // 객체 생성
-            Book book1 = new Book("Java Programming", "John Smith", 300);
-            Book book2 = new Book("Data Structures", "Jane Doe", 400);
 
-            // 값 출력
-            System.out.println("Book 1:");
-            System.out.println("Title: " + book1.getTitle());
-            System.out.println("Author: " + book1.getAuthor());
-            System.out.println("Page Count: " + book1.getPageCount());
+    // Getter 및 Setter 메서드
+    public String getTitle() {
+        return title;
+    }
 
-            System.out.println();
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-            System.out.println("Book 2:");
-            System.out.println("Title: " + book2.getTitle());
-            System.out.println("Author: " + book2.getAuthor());
-            System.out.println("Page Count: " + book2.getPageCount());
-        }
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", pageCount=" + pageCount +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        // 객체 생성
+        Book book1 = new Book("Java Programming", "John Smith", 300);
+        Book book2 = new Book("Data Structures", "Jane Doe", 400);
+
+        System.out.println(book1);
+        System.out.println(book2);
+
     }
 }
