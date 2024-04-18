@@ -2,7 +2,7 @@
 - [나의 블로그](https://blog.naver.com/0flex?usp=drive_link)
 The Link [Registration](https://blog.naver.com/0flex)
 https://blog.naver.com/0flex
-<a href="https://blog.naver.com/0flex/" target="_blank">example</a>
+[link](https://blog.naver.com/0flex){:target="_blank"}
 - 
 - [공유 링크](https://docs.google.com/spreadsheets/d/1flnqSaVL5WnI76xwxW1Y9qtJ2w6WAgwS6xFecxf6_Kk/edit?usp=sharing?usp=drive_link)
 🖥️ Research Experiences
