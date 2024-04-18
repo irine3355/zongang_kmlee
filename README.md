@@ -5,6 +5,8 @@
 ## 목차  :+1:
 
 - [JAVA PPT](https://docs.google.com/presentation/d/1nX5ynRyv7jJcdvafVACQUOJ1GUqke5oGOEZvzwifiCI/edit?usp=sharing?usp=drive_link)
+- [JAVA 추가정리 PPT](https://docs.google.com/presentation/d/1ytVBn1NN9ugt-4_xGSFKtDqYuqE-nPWt4MoYOSt0Afc/edit?usp=sharing?usp=sharing?usp=drive_link)
+  
 - [REACT PPT](https://docs.google.com/presentation/d/1R-756BxJfx70CobjCbBN7xjmyy3sxAqsbaYMlyVKigc/edit?usp=sharing?usp=sharing?usp=drive_link)
   
 
