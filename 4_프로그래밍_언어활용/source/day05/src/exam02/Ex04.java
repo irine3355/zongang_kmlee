@@ -20,16 +20,16 @@ public class Ex04 {
             System.out.println("ad.numA " + ad.numA);
             System.out.println("d.numA " + d.numA);
             System.out.println("ad.numD " + ((D) ad).numD);
-            System.out.println("d.numD " +  d.numD);
+            System.out.println("d.numD " + d.numD);
 
             System.out.println("ad " + System.identityHashCode(ad));
             System.out.println("d " + System.identityHashCode(d));
             System.out.println("ad.numA " + System.identityHashCode(ad.numA));
             System.out.println("d.numA " + System.identityHashCode(d.numA));
+            System.out.println("ad.numA " + System.identityHashCode(((D) ad).numD));
+            System.out.println("d.numA " + System.identityHashCode(d.numD));
 
         }
-
-
 
 
 //        if (ac instanceof C) {
