@@ -7,7 +7,7 @@ public class Ex01 {
 
           s1.printThis();
         // System.out.println(s1);
-        //Schedule _this = s1.returnThis(); //  this 왜 언더바 필요함?
+        //Schedule _this = s1.returnThis(); //
         // System.out.println(_this == s1); //this의 값과 s1 가지고 있는 주소 같다.
 
 //        s1.setYear(2024);
