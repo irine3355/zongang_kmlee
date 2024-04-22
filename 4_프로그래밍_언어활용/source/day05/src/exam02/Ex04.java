@@ -42,7 +42,7 @@ public class Ex04 {
             System.out.println(cc == ac); // 참
 
             //ad 와 d 주소, 해시코드, 접근가능 내부의 변수와 그 값, 주소, 해시코드 모두 같음!
-            System.out.println("ac " + ac); // ad 주소 그대로
+            System.out.println("ac " + ac); // ad 주소 그대로 ac.toString()
             System.out.println("cc " + cc); // ad 와 d 주소 같음
             System.out.println("ac.numA " + ac.numA);
             System.out.println("cc.numA " + cc.numA); // 값은 동일하게 10;
