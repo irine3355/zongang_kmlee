@@ -17,7 +17,7 @@ public class Ex09 {
  * 016-000-0000
  */
 
-        Pattern pattern = Pattern.compile("^01[016]\\D*\\d{3,4}]\\D*\\d{4}$");
+        Pattern pattern = Pattern.compile("^01[016]\\D*\\d{3,4}\\D*\\d{4}$");
         Matcher matcher = pattern.matcher(mobile);
         boolean matched = matcher.find();
         return matched;

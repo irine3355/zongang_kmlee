@@ -7,8 +7,10 @@ public class Ex05 {
         int[] nums1 = {10, 20, 30, 40};
         int[] nums2 = {10, 20, 30, 40};
 
-       boolean isSame = Arrays.equals(nums1, nums2);
+
+        boolean isSame = Arrays.equals(nums1, nums2);
         System.out.println(isSame);
+
 //        boolean isSame = true;
 //        for (int i = 0; i < nums1.length; i++) {
 //            for (int num2 : nums2) {
