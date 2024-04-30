@@ -1,7 +1,7 @@
 package exam03_q5;
 
 public interface CoffeeShop {
-    CoffeeShop enter(Person person);
+    CoffeeShop pEnter(Person person);//Person 클래스 , person 메소드의 매개변수 이름
 
     CoffeeShop order();
 

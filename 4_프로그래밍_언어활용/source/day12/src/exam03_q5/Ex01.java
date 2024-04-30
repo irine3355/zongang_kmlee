@@ -12,13 +12,13 @@ public class Ex01 {
         lee.setMenu("라떼");
 
         try{
-            starBucks.enter(kim).order().exit(); // 메서드 체인
-            coffeeBean.enter(lee).order().exit();
+            starBucks.pEnter(kim).order().exit(); // 메서드 체인
+            coffeeBean.pEnter(lee).order().exit();
 
             System.out.println(kim);
             System.out.println(lee);
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()); // Message 어디에서 설정?
         }
 
 //        starBucks.enter(kim);
