@@ -9,7 +9,6 @@ import java.util.TreeSet;
 public class Ex04 {
     public static void main(String[] args) {
         //HashSet<String> names = new HashSet<>();
-
         Comparator<String> comp = new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
