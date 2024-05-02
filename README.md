@@ -4,13 +4,9 @@
 🖥️ Research Experiences
 ## 목차  :+1:
 
-- [JAVA PPT](https://docs.google.com/presentation/d/1nX5ynRyv7jJcdvafVACQUOJ1GUqke5oGOEZvzwifiCI/edit?usp=sharing?usp=drive_link)
-- [JAVA 추가정리 PPT](https://docs.google.com/presentation/d/1ytVBn1NN9ugt-4_xGSFKtDqYuqE-nPWt4MoYOSt0Afc/edit?usp=sharing?usp=sharing?usp=drive_link)
-  
-- [REACT PPT](https://docs.google.com/presentation/d/1R-756BxJfx70CobjCbBN7xjmyy3sxAqsbaYMlyVKigc/edit?usp=sharing?usp=sharing?usp=drive_link)
-  
+- [JAVA exel](https://docs.google.com/spreadsheets/d/1m_p89PRKmVSOsaXpn2S9Js-BcrFzdRwyeNVif3eP_RE/edit?usp=sharing?usp=drive_link)
 
 
-## 0. 문의
-- [문의](https://irine3355.github.io/11_mini_pj_1_quiz?usp=drive_link)
+## 0. 
+-
 - [유용 정보모음](https://docs.google.com/spreadsheets/d/1flnqSaVL5WnI76xwxW1Y9qtJ2w6WAgwS6xFecxf6_Kk/edit?usp=sharing?usp=sharing?usp=drive_link)
