@@ -2,7 +2,6 @@ package exam03_q5.exam03_q5_2;
 
 public class Person {
     private String pname;
-
     private String menu;
 
     public Person(String name) {
@@ -14,8 +13,6 @@ public class Person {
     }
 
 
-
-
     public String getMenu() {
         return menu;
     }
@@ -23,8 +20,6 @@ public class Person {
     public void setMenu(String menu) {
         this.menu = menu;
     }
-
-
 
 
 }

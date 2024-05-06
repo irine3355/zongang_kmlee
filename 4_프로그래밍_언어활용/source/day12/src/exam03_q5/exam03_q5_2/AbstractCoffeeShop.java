@@ -3,7 +3,7 @@ package exam03_q5.exam03_q5_2;
 import java.util.Map;
 
 public abstract class AbstractCoffeeShop implements CoffeeShop {
-
+  
     private String sName; // 커피샵 이름
     private Map<String, Integer> menus;
     private Person person;
