@@ -2,10 +2,10 @@ package exam01;
 
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
-import java.util.Arrays;
+import java.io.IOException;
 
 public class Ex03 {
-    public static void main(String[] args) throws {
+    public static void main(String[] args) {
         int[] scores = {90, 88, 65, 100, 78, 98};
 
         try(FileOutputStream fos = new FileOutputStream("score.txt");
@@ -13,7 +13,8 @@ public class Ex03 {
             for(int score:scores){
                 dos.writeInt(score);
             }
-            Arrays.stream(scores).forEach(dos::writeInt);
+        } catch (IOException e) {
+            e.printStackTrace();
 
         }
     }
