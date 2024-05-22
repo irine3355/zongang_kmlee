@@ -1,6 +1,6 @@
 package exam01;
 
-import Member.Member;
+import Member.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -12,12 +12,11 @@ public class Ex02 {
         System.out.println(member);
 
     }
-
-//    @Test
-//    void test2(){
-//        Board board = new Board("제목", "내용");
-//        System.out.println(board);
-//    }
+    @Test
+    void test2(){
+        Board board = new Board("제목", "내용");
+        System.out.println(board);
+    }
 
     @Test
     void test3 (){
@@ -32,7 +31,7 @@ public class Ex02 {
     @Test
     void test4(){
 
-        User2 user = User2. builder()
+        User2 user = User2.builder()
                 .userId("USER01")
                 .userNm("사용자01")
                 .email("USER01@test.org")

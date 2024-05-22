@@ -14,7 +14,4 @@ public class User2 {
     private String userNm;
     private String email;
     private LocalDateTime regDt;
-
-    User2 user2 = new User2();
-    
 }
