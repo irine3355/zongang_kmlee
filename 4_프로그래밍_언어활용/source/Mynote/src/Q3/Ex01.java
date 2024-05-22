@@ -14,8 +14,8 @@ public class Ex01 {
         lee.setMenu("라떼");
 
         try{
-            starS.pEnter(kim).order();
-            BeanS.pEnter(lee).order();
+//            starS.pEnter(kim).order();
+//            BeanS.pEnter(lee).order();
 
             System.out.println(kim);
             System.out.println(lee);
