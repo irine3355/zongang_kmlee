@@ -1,37 +1,40 @@
+
 package exam01;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.sql.DataSource;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Ex03 {
-    // db연결 url, 계정
-    String url = "jdbc:oracle:thin:@localhost:1521:XE";
-    String user = "STUDY"; // scott
-    String password = "oracle"; //tiger
 
-    @BeforeAll //모든 테스트 메서드 호출 전에 단한번 실행 공통 초기화
+    /* DB 연결 URL, 계정 */
+    private String url = "jdbc:oracle:thin:@localhost:1521:XE";
+    private String user = "STUDY"; // SCOTT
+    private String password = "oracle"; // tiger
+
+    @BeforeAll
     static void init() {
-
         try {
+            // 오라클 드라이버 동적 로드
             Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
+
     @Test
     void test1() {
-        String sql = "INSERT INTO MEMBER(?,?,?,?) ";
+        String sql = "CALL REGISTER_MEMBER(?, ?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
-             CallableStatement cstmt = conn.createStatement(sql)) {
+             CallableStatement cstmt = conn.prepareCall(sql)) {
             cstmt.setString(1, "USER99");
             cstmt.setString(2, "123456");
             cstmt.setString(3, "사용자99");
@@ -39,6 +42,7 @@ public class Ex03 {
 
             int cnt = cstmt.executeUpdate();
             System.out.println(cnt);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,57 +50,56 @@ public class Ex03 {
 
     @Test
     void test2() {
+        // 커넥션 풀 제공
         DataSource ds = new DataSource();
-        /* db 연결 설정 s */
-        ds.setDriverClassName("orcacle.jdbc.driver.OracleDriver");
+        /* DB 연결 설정 S */
+        ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
         ds.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
         ds.setUsername("STUDY");
-        ds.SETpASSWORD("oracle");
+        ds.setPassword("oracle");
+        /* DB 연결 설정 E */
 
-        /* db 연결 설정 e */
+        /* 커넥션 풀 설정 S */
+        ds.setInitialSize(2); // 로드 초기에 생성할 연결 객체 수  - 기본값 10
+        ds.setMaxActive(10); // 최대 생성할 연결 객체 수 - 기본값 100
+        ds.setTestWhileIdle(true); // 연결 객체가 유휴 상태일때 연결상태 체크
+        ds.setTimeBetweenEvictionRunsMillis(5 * 1000); // 5초에 한번씩 연결 상태 체크
+        ds.setMinEvictableIdleTimeMillis(30 * 1000); // 유휴 상태 객체를 30초 이후에 소멸 후 새로 생성
+        /* 커넥션 풀 설정 E */
 
-        /* 커넥션 풀 설정 s */
-        ds.setInitialSize(2); // 로드 초기에 생성할 연결 객체 수 -기본값10
-        ds.setMaxActive(10); // 최대 생성할 연결 객체 수  -기본값100
-        ds.setTestWhileIdle(true); // 연결 객체가 유휴 생태일때 연결상태 체크
-        ds.setTimeBetweenEvictionRunsMillis(5 * 1000); //5초에 한번씩 연결 상태 체크
-        ds.setMinEvictableIdleTimeMillis(5 * 1000); // 유휴 상태 객체를 30초이후에 소멸 후 새로 생성
-        /* 커넥션 풀 설정 e */
+        /* Connection 객체 생성 */
+        try (Connection conn = ds.getConnection()) {
+            System.out.println(conn);
 
-        /* conection 객체 생성 s */
-        try(Connection conn = ds.getConnection()) {
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void test3() {
+        /* 연결 설정 S */
+        HikariConfig config = new HikariConfig();
+        config.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+        config.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE");
+        config.setUsername("STUDY");
+        config.setPassword("oracle");
+        /* 연결 설정 E */
+
+        /* 커넥션 풀 설정 S */
+        config.setMinimumIdle(2);
+        config.setMaximumPoolSize(10);
+
+        /* 커넥션 풀 설정 E */
+
+        /* DataSource 객체 생성 */
+        HikariDataSource ds = new HikariDataSource(config);
+
+        /* Connection 객체 생성 */
+        try (Connection conn = ds.getConnection()) {
             System.out.println(conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-    }
-
-    @Test
-void test3(){
-    /*연결 설정 s*/
-HikariConfig config = new HikariConfig();
-config.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        config.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE");
-        config.setUsername("SUTUDY");
-        config.setPassword("oracle");
-        /*연결 설정 e*/
-
-        /* 커넥션 풀 설정 s */
-        config.setMinimumIdle(2);
-        config.setMaximumPoolSize(10);
-        /* 커넥션 풀 설정 e*/
-        /* DataSource 객체 생성 */
-
-        HikariDataSource ds = new HikariDataSource(config);
-        /* conection 객체 생성 s */
-        try(Connection conn = ds.getConnection()) {
-            System.out.println(conn);
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        /* conection 객체 생성 e */
-
-
     }
 }

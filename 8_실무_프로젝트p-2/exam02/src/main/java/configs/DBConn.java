@@ -13,18 +13,17 @@ public class DBConn {
 
     static {
         try {
-            // 설정파일(mybatis-config.xml) -> Reader 객체로 변환
             Reader reader = Resources.getResourceAsReader("configs/mybatis-config.xml");
 
             factory = new SqlSessionFactoryBuilder().build(reader);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static SqlSession getSession(boolean autoCommit) {
-        SqlSession session = factory.openSession(autoCommit);
-        return session;
+        return factory.openSession(autoCommit);
     }
 
     public static SqlSession getSession() {
