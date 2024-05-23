@@ -1,7 +1,7 @@
 package exam01;
 
 import java.util.Objects;
-
+// Comparable 인터페이스를 구현하는 방법
 public class Book implements Comparable<Book> {
     private int isbn; // 도서 번호
     private String title; // 도서명
@@ -42,7 +42,7 @@ public class Book implements Comparable<Book> {
 
     @Override
     public int compareTo(Book o) {
-        return isbn - o.isbn; // 오름차순
-        //return o.isbn - isbn; // 내림차순
+        return isbn - o.isbn; // 오름차순 뒤로가면 숫자 커짐
+        //return o.isbn - isbn; // 내림차순 큰 수부터 나옴
     }
 }
