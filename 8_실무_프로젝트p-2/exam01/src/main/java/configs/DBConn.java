@@ -12,24 +12,22 @@ public class DBConn {
     private static SqlSessionFactory factory;
 
     static {
-        try{
+        try {
             // 설정파일(mybatis-config.xml) -> Reader 객체로 변환
+            Reader reader = Resources.getResourceAsReader("configs/mybatis-config.xml");
 
-        Reader reader = Resources.getResourceAsReader
-                ("configs/mybatis-config.xml");
-
-        factory = new SqlSessionFactoryBuilder().build(reader);
-    }catch(IOException e){
-        e.printStackTrace();
+            factory = new SqlSessionFactoryBuilder().build(reader);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static SqlSession getSession(boolean autoCommit){
+    public static SqlSession getSession(boolean autoCommit) {
         SqlSession session = factory.openSession(autoCommit);
         return session;
-
     }
 
-    public static SqlSession getSession (){
+    public static SqlSession getSession() {
         return getSession(true);
     }
 }
