@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.MemberMapper">
+    <!-- 결과 매핑 설정 -->
+    <resultMap id="memberMap" type="member.Member">
+        <!-- 각 열과 매핑할 객체의 속성 지정 -->
+        <result column="USER_NO" property="userNo" />
+        <result column="USER_ID" property="userId" />
+        <result column="USER_PW" property="userPw" />
+        <result column="USER_NM" property="userNm" />
+        <result column="MOBILE" property="mobile" />
+        <result column="REG_DT" property="regDt" />
+        <result column="MOD_DT" property="modDt" />
+    </resultMap>
+
+    <!-- getList 쿼리 -->
+    <select id="getList" resultMap="memberMap">
+        SELECT * FROM MEMBER
+    </select>
+
+    <!-- getList3 쿼리 -->
+    <select id="getList3" resultMap="memberMap">
+        <!-- 파라미터 바인딩 (바인딩"은 데이터나 프로세스를 함께 묶는 행위를 가리킵니다)-->
+        <bind name="P_userNm" value="'%' + _parameter.getUserNm() + '%'" />
+        <bind name="P_mobile" value="'%' + _parameter.getMobile() + '%'" />
+        SELECT * FROM MEMBER
+        <!-- 동적 쿼리 작성 -->
+        <where>
+            <if test="userId != null">
+                USER_ID = #{userId}
+            </if>
+            <if test="userNm != null">
+                AND USER_NM LIKE #{P_userNm}
+            </if>
+            <if test="mobile != null">
+                AND MOBILE LIKE #{P_mobile}
+            </if>
+        </where>
+    </select>
+
+    <!-- getList4 쿼리 -->
+    <select id="getList4" resultMap="memberMap">
+        SELECT * FROM MEMBER
+        <!-- 컬렉션 파라미터 사용 -->
+        <where>
+            <foreach item="item" index="index" collection="list"
+                     open="USER_ID IN (" close=")" separator=",">
+                #{item}
+            </foreach>
+        </where>
+    </select>
+
+    <!-- getList5 쿼리 -->
+    <select id="getList5">
+        SELECT * FROM MEMBER WHERE
+        <![CDATA[
+            USER_NO > #{userNo}
+        ]]>
+    </select>
+
+    <!-- register 쿼리 -->
+    <insert id="register">
+        INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, USER_NM, MOBILE)
+        VALUES (SEQ_MEMBER.NEXTVAL, #{userId}, #{userPw}, #{userNm}, #{mobile})
+    </insert>
+
+    <!-- register2 쿼리 -->
+    <insert id="register2">
+        <!-- selectKey를 사용한 주키 생성 -->
+        <selectKey keyProperty="userNo" order="BEFORE" resultType="long">
+            SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
+        </selectKey>
+
+        INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, USER_NM, MOBILE)
+        VALUES (#{userNo}, #{userId}, #{userPw}, #{userNm}, #{mobile})
+    </insert>
+
+    <!-- modify 쿼리 -->
+    <update id="modify">
+        UPDATE MEMBER
+        <!-- 동적 업데이트 쿼리 작성 -->
+        <set>
+            <if test="userPw != null">
+                USER_PW = #{userPw},
+            </if>
+            <if test="userNm != null">
+                USER_NM = #{userNm},
+            </if>
+            <if test="mobile != null">
+                MOBILE = #{mobile},
+            </if>
+        </set>
+        WHERE USER_ID = #{userId}
+    </update>
+
+    <!-- delete 쿼리 -->
+    <delete id="delete">
+        DELETE FROM MEMBER WHERE USER_ID = #{userId}
+    </delete>
+</mapper>

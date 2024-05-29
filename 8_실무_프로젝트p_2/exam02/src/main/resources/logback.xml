@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+
+    <!-- 콘솔 출력을 위한 appender 설정 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 로그 출력 형식 지정 -->
+            <!-- %d 날짜와 시간,%5p  로그 레벨은 다섯 글자로 표시,
+             %c{2} 패키지 + 클래스의 이름 {2}는 클래스 이름에서 마지막 두 단어만 출력하도록 지정한 것,
+             - %m%n 실제 로그 메시지  -->
+            <pattern>%d %5p %c{2} - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 기본 로그 레벨 설정 -->
+    <root level="INFO">
+        <!-- 콘솔 출력 appender를 root logger에 연결
+        (appender 덧칠을 한 )
+        -->
+        <appender-ref ref="stdout"/>
+    </root>
+
+    <!-- mappers 로거에 대한 디버그 레벨 설정 -->
+    <logger name="mappers">
+        <level value="DEBUG"/>
+    </logger>
+</configuration>
