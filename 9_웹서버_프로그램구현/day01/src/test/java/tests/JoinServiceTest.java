@@ -20,7 +20,7 @@ public class JoinServiceTest {
     void init() {
         joinService = new JoinService(new JoinValidator());
     }
-
+//빌더 패턴(Builder Pattern)은 객체 생성의 복잡성을 줄이고, 가독성을 높이며, 생성 과정에서 일관성을 유지하기 위해 사용되는 디자인 패턴입니다.
     RequestJoin getData() {
         return RequestJoin.builder()
                 .email("test" + System.currentTimeMillis() + "@test.org")
