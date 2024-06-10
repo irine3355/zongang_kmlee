@@ -1,5 +1,6 @@
 package tests;
 
+
 import com.github.javafaker.Faker;
 import global.exceptions.ValidationException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -61,7 +62,7 @@ public class LoginServiceTest {
     void requiredFieldTest() {
         assertAll(
                 //이메일 검증
-                () -> requiredFieldTest("email", "이메일"),
+                () -> requiredFieldEachTest("email", "이메일"),
                 () -> {
                     setParamData("email", faker.internet().emailAddress());
                     requiredFieldEachTest("password", "비밀번호");
@@ -69,42 +70,32 @@ public class LoginServiceTest {
 
         );
     }
+    void requiredFieldEachTest(String name, String message) {
 
-        //아이디 필 수 항복 검증
-        ValidationException thrown = assertThrows(ValidationException.class, ()-> {
-            setParamData("email", faker.internet().emailAddress());
+        ValidationException thrown = assertThrows(ValidationException.class, () -> {
+            // null
             loginService.process(request);
-        });
-String message = thrown.getMessage();
-assertTrue(message.contains("이메일"));
-    }
-    void requiredFieldEachTest(String name, String message){
-        setParamData("email", null);
-        setParamData("password", null);
-       ValidationException thrown = assertThrows(ValidationException.class, ()-> {
-           //null
-           loginService.process(request);
-           //
-           setParamData(name, "       ");
-           loginService.process(request);
-       }, message + "테스트");
 
-       String msg = thrown.getMessage();
-       assertTrue(msg.contains(message), message)
+            // 빈값
+            setParamData(name, "     ");
+            loginService.process(request);
+        }, message + " 테스트");
 
-        assertThrows(ValidationException.class, ()-> {
-
-        });
+        String msg = thrown.getMessage();
+        assertTrue(msg.contains(message), message + " 테스트");
     }
 
     @Test
-@DisplayName("이메일로 회원이 조회되는지 검증, 검증 실패시 ValidationException 발생")
-void memberExistsTest(){
+    @DisplayName("이메일로 회원이 조회되는지 검증, 검증 실패시 ValidationException 발생")
+    void memberExistsTest() {
 
-}
+    }
 
-@Test
-@DisplayName("비밀번호가 일치하는지 검증, 검증 실패시 PasswordMismatchException 발생")
-void memberAuthTest(){
+    @Test
+    @DisplayName("비밀번호가 일치하는지 검증, 검증 실패시 PasswordMismatchException 발생")
+    void memberAuthTest() {
+
+    }
+
 
 }

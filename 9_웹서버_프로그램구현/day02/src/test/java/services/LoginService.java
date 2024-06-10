@@ -1,18 +1,19 @@
 package services;
 
 import global.Mailer;
-import global.exceptions.ValidationException;
 import global.validators.Validator;
 import jakarta.servlet.http.HttpServletRequest;
-import member.validators.LoginValidator;
-import tests.LoginServiceTest;
 
 public class LoginService {
-    private Validator validator;
+    private Validator<HttpServletRequest> validator;
     private Mailer mailer;
 
     public LoginService(Validator<HttpServletRequest> validator) {
         this.validator = validator;
+    }
+
+    public void setMailer(Mailer mailer) {
+        this.mailer = mailer;
     }
 
     public void process(HttpServletRequest request) {
@@ -27,12 +28,7 @@ if(mailer !=null){
     String email = request.getParameter("email");
     mailer.send(email);
 }
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("password");
-//        System.out.printf("email= %s, password= %s%n", email, password);
-//
-//        if(email == null || email.isBlank()){
-//            throw new ValidationException("이메일을 입력하세요.");
+
         }
     }
 
