@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.annotation.WebInitParam;
 
 import java.io.IOException;
+
 /*
 @WebFilter(value = "/board", initParams = {
         @WebInitParam(name="key1", value = "value1"),
@@ -14,8 +15,11 @@ public class BoardFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-     String k1 = filterConfig.getInitParameter("k1");
+        // 1. 필터 초기화 매개변수 "k1"의 값을 가져옵니다.
+        String k1 = filterConfig.getInitParameter("k1");
+        // 2. 필터 초기화 매개변수 "k2"의 값을 가져옵니다.
         String k2 = filterConfig.getInitParameter("k2");
+        // 3. "k1"과 "k2" 값을 콘솔에 출력합니다.
         System.out.printf("k1=%s, k2=%s%n", k1, k2);
 
     }
