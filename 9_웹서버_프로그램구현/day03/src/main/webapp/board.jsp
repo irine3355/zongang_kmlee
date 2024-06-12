@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-form method="post" action="board_ps.jsp">
+<form method="post" action="board_ps.jsp">
 
 제목: <input type="text" name="subject"><br>
 내용: <textarea name="content"></textarea><br>
