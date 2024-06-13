@@ -10,6 +10,7 @@ public class Board2Filter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         System.out.println("Board2Filter - 요청 전");
 
+        //왜 doget이 출력되?
         chain.doFilter(request, response);
 
         System.out.println("Board2Filter - 응답 후");

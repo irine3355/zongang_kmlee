@@ -16,8 +16,8 @@ public class CommonRequestWrapper extends HttpServletRequestWrapper {
     public String getParameter(String name) {
         String value = super.getParameter(name);
 
-        value = value == null ? value : "★" + value + "♥";
+        value = value == null ? value : ""
 
-        return value;
+        return
     }
 }
