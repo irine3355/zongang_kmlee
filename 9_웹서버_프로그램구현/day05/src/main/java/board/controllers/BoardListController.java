@@ -13,10 +13,9 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/board/list/*")
-public class boardListController extends HttpServlet {
-
+public class BoardListController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         BoardInfoService service = new BoardInfoService();
         List<BoardData> items = service.getList();
