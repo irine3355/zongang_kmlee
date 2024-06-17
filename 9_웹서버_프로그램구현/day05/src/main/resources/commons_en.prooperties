@@ -1,0 +1,10 @@
+# 로그인
+#EMAIL=email
+#PASSWORD=비밀번호
+#LOGIN=로그인
+#LOGIN_MSG={0}){1})님 로그인...
+
+이메일=Email
+비밀번호=Password
+로그인=Login
+로그인_메세지={0}){1}) logged...
