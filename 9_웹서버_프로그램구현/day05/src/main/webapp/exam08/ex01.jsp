@@ -1,9 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-
 <c:set var="str" value="Apple,Melon,Orange,Grape" />
-<c:set var="fruits" value="${fn:split(str,',')}" />
+<c:set var="fruits" value="${fn:split(str, ',')}" />
 str : ${str}<br>
 fruits : ${fruits}<br>
 
@@ -11,4 +10,4 @@ fruits : ${fruits}<br>
 ${fruit}<br>
 </c:forEach>
 
-str2: ${fn:join(fruits)}
+str2 : ${fn:join(fruits, '#')}<br>
