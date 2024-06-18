@@ -1,11 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="board.entities.*"%>
-
 <%
-BoardData board = BoardData.builder()
-.subject("제목")
-.content("내용")
-.build();
+    Cookie[] cookies = request.getCookies();
+    for (Cookie cookie : cookies) {
+        String name = cookie.getName();
+        String value = cookie.getValue();
 
-session.setAttribute("board", board);
-session.setAttribute("title", "제목!");
+        System.out.printf("name=%s, value=%s%n", name, value);
+    }
+%>
