@@ -1,6 +1,7 @@
 package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
+import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.configs.DBConn;
 import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.controllers.RequestJoin;
@@ -28,11 +29,13 @@ public class JoinServiceTest {
 
     @BeforeEach
     void init() {
-        service = MemberServiceProvider.getInstance().joinService();
-        mapper = DBConn.getSession().getMapper(MemberMapper.class);
+        MemberServiceProvider provider = MemberServiceProvider.getInstance();
+        SqlSession session = DBConn.getSession();
+        service = provider.joinService();
+        mapper = session.getMapper(MemberMapper.class);
     }
 
-    RequestJoin getData() {
+    RequestJoin getData() { //메서드는 테스트에 사용할 가짜 회원가입 데이터를 생성
         Faker faker = new Faker(Locale.ENGLISH);
 
         RequestJoin form =  RequestJoin.builder()
@@ -72,6 +75,8 @@ public class JoinServiceTest {
                 () -> requiredEachFieldTest("userName", true, "회원명"),
                 () -> requiredEachFieldTest("userName", false, "회원명"),
                 () -> requiredEachFieldTest("termsAgree", false, "약관")
+
+
         );
     }
 

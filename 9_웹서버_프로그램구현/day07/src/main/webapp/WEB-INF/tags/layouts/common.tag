@@ -10,6 +10,8 @@
 <fmt:setBundle basename="messages.commons" />
 <c:url var="cssUrl" value="/static/css/" />
 <c:url var="jsUrl" value="/static/js/" />
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,6 +22,7 @@
          </c:if>
          <fmt:message key="SITE_TITLE" />
         </title>
+
         <link rel="stylesheet" type="text/css" href="${cssUrl}style.css">
         <jsp:invoke fragment="commonCss" />
         <c:if test="${addCss != null}">
